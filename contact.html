@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>contact page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="contact-body">
+  <header>
+    <div class="logo-content">
+      <img src="img/logo.png" class="logo" alt="logo do site">
+      <span>Landseeker</span>
+    </div>
+    <div class="container">
+      <ul>
+        <li class="toggle-menu"><a href="#">&#9776;</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+  <div class="contact-content">
+    <div class="contact-title">
+      <h1>Contact Us!</h1>
+    </div>
+    <form action="#">
+      <label for="">Name</label>
+      <input type="text" id='nome'>
+      <label for="">E-mail</label>
+      <input type="email" id='email'>
+      <label for="">Message</label>
+      <textarea name="name" rows="8" cols="80" id='descricao'></textarea>
+      <div id='erros'></div>
+      <div class="contact-item">
+        <input type="checkbox">
+        <label for="">Don't post my name</label>
+        <button type="submit" name="button">Send</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+      /* elemento.evento = function () {
+
+      }  
+        */
+      let title = document.querySelector('h1');
+    //   title.onclick = function () {
+    //     title.style.fontSize = '10px' ;
+    //   }
+      title.onmouseover = function() {
+        title.style.fontSize = '10px'
+      }
+
+      let nameText = document.querySelector('input')
+      nameText.onfocus = function() {
+          nameText.style.backgroundColor = 'lightblue'
+      }
+
+      // validacao formulario 
+      // placeholder é passegeiro, value é o valor 
+      document.querySelector('form').onsubmit =  function(event) {
+          // bloquiar se encontrar inconsistencia 
+          let erros = []
+
+          let nome = document.querySelector('#nome')
+          let email = document.querySelector('#email')
+          let descricao = document.querySelector('#descricao')
+
+          if (nome.value.length === 0) {
+            erros.push({'elemento': 'nome',
+                        'mensagem': 'Campo nome precisa ser preenchido!'
+            })
+            }
+
+          if (email.value.length === 0) {
+            erros.push({'elemento': 'email',
+                        'mensagem': 'Campo email precisa ser preenchido!'
+            })
+            }
+
+          if (descricao.value.length === 0) {
+            erros.push({'elemento': 'descricao',
+                        'mensagem': 'Campo descrição precisa ser preenchido!'
+            })
+            }
+          // bloquiar comportamento padrão
+          if (erros.length !==0){
+            event.preventDefault()
+            erros.forEach((erro)=>{
+              let elemento = document.getElementById(erro.elemento)
+              
+              elemento.style.borderColor = 'red';
+              
+              let p = document.createElement('p')
+              p.innerHTML = erro.mensagem
+
+              document.getElementById('erros').appendChild(p)
+
+            })
+          }
+      }
+
+
+  </script>
+
+
+
+
+</body>
+</html>
