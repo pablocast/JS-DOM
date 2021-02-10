@@ -40,6 +40,7 @@ header {
   justify-content: space-between;
   background-color: white;
   box-shadow: 0 0 8px 0 #676565;
+  font-size: 18px;
 }
 
 header .logo-content {
@@ -56,12 +57,11 @@ header .logo-content img {
 }
 
 header .container {
-  width: 40%;
-  margin-top:15px;
+  width: 50%;
+  margin-top:11px;
   align-items: center;
   background-color: white;
-  padding-right: 15px;
-  padding-left: 50px;
+  justify-content: space-around;
   float: right;
 }
 
